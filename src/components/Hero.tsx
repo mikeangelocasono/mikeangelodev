@@ -196,27 +196,28 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="order-1 lg:order-2 flex justify-center relative z-10"
           >
-            <div className="relative">
-              {/* Animated decorative rings */}
+            {/* Outer container with padding for floating elements */}
+            <div className="relative p-8 sm:p-12 lg:p-16">
+              {/* Animated decorative rings - positioned relative to center */}
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px] -m-4 border-2 border-dashed border-blue-200/50 dark:border-blue-500/20 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px] border-2 border-dashed border-blue-200/50 dark:border-blue-500/20 rounded-full pointer-events-none"
               />
               <motion.div 
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 w-80 h-80 sm:w-96 sm:h-96 lg:w-[460px] lg:h-[460px] -m-8 border border-purple-200/30 dark:border-purple-500/10 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-96 sm:h-96 lg:w-[460px] lg:h-[460px] border border-purple-200/30 dark:border-purple-500/10 rounded-full pointer-events-none"
               />
               
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl scale-110" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl scale-110 pointer-events-none" />
               
               {/* Image Container */}
               <motion.div 
-                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10"
+                className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10 z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -230,13 +231,13 @@ export default function Hero() {
                     fill
                     priority
                     className="object-cover object-top relative z-10"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px"
                     onError={() => setImageError(true)}
                   />
                 ) : (
                   /* Fallback Avatar */
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
-                    <span className="text-7xl sm:text-8xl lg:text-9xl font-bold text-white/90">M</span>
+                    <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white/90">M</span>
                   </div>
                 )}
               </motion.div>
@@ -247,15 +248,15 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="absolute -right-2 sm:-right-4 top-8 bg-white dark:bg-slate-800 px-4 py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm"
+                className="absolute right-0 sm:right-2 top-12 sm:top-16 bg-white dark:bg-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm z-30"
               >
                 <div className="flex items-center gap-2">
                   <motion.div 
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-3 h-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50"
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50"
                   />
-                  <span className="text-sm font-semibold text-gray-700 dark:text-slate-200">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-slate-200 whitespace-nowrap">
                     Open to Work
                   </span>
                 </div>
@@ -267,16 +268,16 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="absolute -left-2 sm:-left-4 bottom-12 bg-white dark:bg-slate-800 px-4 py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm"
+                className="absolute left-0 sm:left-2 bottom-16 sm:bottom-20 bg-white dark:bg-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm z-30"
               >
                 <div className="flex items-center gap-2">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <Sparkles className="w-4 h-4 text-blue-500" />
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500" />
                   </motion.div>
-                  <span className="text-sm font-semibold text-gray-700 dark:text-slate-200">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-slate-200 whitespace-nowrap">
                     AI-Powered
                   </span>
                 </div>
@@ -287,18 +288,18 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.2 }}
-                className="absolute top-0 left-8 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700"
+                className="absolute top-4 sm:top-6 left-12 sm:left-16 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700 z-30"
               >
-                <Code2 className="w-5 h-5 text-blue-500" />
+                <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.3 }}
-                className="absolute bottom-4 right-8 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700"
+                className="absolute bottom-8 sm:bottom-10 right-12 sm:right-16 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700 z-30"
               >
-                <Database className="w-5 h-5 text-purple-500" />
+                <Database className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
               </motion.div>
             </div>
           </motion.div>
