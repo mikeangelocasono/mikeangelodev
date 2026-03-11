@@ -146,7 +146,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left order-2 lg:order-1 relative z-50 isolate"
+            className="text-center lg:text-left order-2 lg:order-1 relative z-10 isolate"
           >
             {/* Badge */}
             <motion.div
@@ -256,7 +256,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0 p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-slate-600 relative z-50"
+              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0 p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-slate-600 relative z-10"
             >
               {stats.map((stat, index) => (
                 <motion.div 
