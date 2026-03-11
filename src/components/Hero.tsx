@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-28 sm:pt-24 md:pt-20 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -140,7 +140,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -168,7 +168,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-3 sm:mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4"
             >
               Hi, I&apos;m{" "}
               <span className="relative">
@@ -219,14 +219,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
             >
               <motion.a
                 href="#projects"
                 onClick={(e) => handleNavClick(e, "#projects")}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 group"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 group"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -236,7 +236,7 @@ export default function Hero() {
                 onClick={(e) => handleNavClick(e, "#contact")}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-300 shadow-lg shadow-gray-200/50 dark:shadow-slate-900/50"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-300 shadow-lg shadow-gray-200/50 dark:shadow-slate-900/50"
               >
                 Hire Me
               </motion.a>
@@ -244,7 +244,7 @@ export default function Hero() {
                 href="/Mike_Angelo_Casono_CV.pdf"
                 download
                 whileHover={{ y: -2 }}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 group"
               >
                 <Download className="w-4 h-4 group-hover:animate-bounce" />
                 Download CV
@@ -256,24 +256,24 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="grid grid-cols-3 gap-2 xs:gap-3 sm:gap-6 lg:gap-8 max-w-sm sm:max-w-md mx-auto lg:mx-0 p-3 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-slate-600 relative z-50"
+              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0 p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-slate-600 relative z-50"
             >
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-center group cursor-default"
+                  className="text-center lg:text-left group cursor-default"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <div className="inline-flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-600 mb-1.5 sm:mb-2 group-hover:from-blue-100 group-hover:to-blue-50 dark:group-hover:from-blue-900/50 dark:group-hover:to-blue-800/50 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-600 mb-2 group-hover:from-blue-100 group-hover:to-blue-50 dark:group-hover:from-blue-900/50 dark:group-hover:to-blue-800/50 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                    <stat.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600 dark:text-slate-300 font-medium leading-tight">
+                  <div className="text-sm text-gray-600 dark:text-slate-300 font-medium">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -286,28 +286,28 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 flex justify-center relative z-0 overflow-hidden mt-4 sm:mt-0"
+            className="order-1 lg:order-2 flex justify-center relative z-0 overflow-hidden"
           >
             {/* Outer container with padding for floating elements */}
-            <div className="relative p-4 xs:p-6 sm:p-10 lg:p-16 pointer-events-none -z-10">
+            <div className="relative p-8 sm:p-12 lg:p-16 pointer-events-none -z-10">
               {/* Animated decorative rings - positioned relative to center */}
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 xs:w-64 xs:h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] border-2 border-dashed border-blue-200/50 dark:border-blue-500/20 rounded-full pointer-events-none z-0"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px] border-2 border-dashed border-blue-200/50 dark:border-blue-500/20 rounded-full pointer-events-none z-0"
               />
               <motion.div 
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 xs:w-72 xs:h-72 sm:w-88 sm:h-88 lg:w-[460px] lg:h-[460px] border border-purple-200/30 dark:border-purple-500/10 rounded-full pointer-events-none z-0"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-96 sm:h-96 lg:w-[460px] lg:h-[460px] border border-purple-200/30 dark:border-purple-500/10 rounded-full pointer-events-none z-0"
               />
               
               {/* Glow effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 xs:w-64 xs:h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl scale-110 pointer-events-none z-0" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl scale-110 pointer-events-none z-0" />
               
               {/* Image Container */}
               <motion.div 
-                className="relative w-44 h-44 xs:w-52 xs:h-52 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10 z-0 pointer-events-auto"
+                className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10 z-0 pointer-events-auto"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
