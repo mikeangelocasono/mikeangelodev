@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
+      className="relative min-h-screen flex items-center pt-32 sm:pt-28 md:pt-24 lg:pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
