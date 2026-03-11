@@ -65,7 +65,7 @@ export default function About() {
                 
                 {!imageError ? (
                   <Image
-                    src="/profile.jpg"
+                    src="/profile.png"
                     alt="Mike Angelo R. Casono"
                     fill
                     className="object-cover object-top relative z-10"

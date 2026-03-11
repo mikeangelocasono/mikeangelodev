@@ -225,7 +225,7 @@ export default function Hero() {
                 
                 {!imageError ? (
                   <Image
-                    src="/profile.jpg"
+                    src="/profile.png"
                     alt="Mike Angelo R. Casono - AI-Assisted Full Stack System Developer"
                     fill
                     priority
