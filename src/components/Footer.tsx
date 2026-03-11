@@ -34,7 +34,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
+    <footer className="bg-gray-900 dark:bg-slate-950 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -45,7 +45,7 @@ export default function Footer() {
                 MIKE<span className="text-blue-400 group-hover:text-blue-300 transition-colors"> DEV</span>
               </span>
             </a>
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-400 dark:text-slate-400 mb-6 max-w-md">
               AI-Assisted Full Stack System Developer specializing in building custom 
               business systems, management platforms, and intelligent solutions that 
               help businesses grow and operate efficiently.
@@ -58,7 +58,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-gray-800 text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-200"
+                  className="p-2.5 rounded-lg bg-gray-800 dark:bg-slate-800 text-gray-400 dark:text-slate-400 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white dark:hover:text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -76,7 +76,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 dark:text-slate-400 hover:text-white transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -88,11 +88,11 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-gray-400 dark:text-slate-400">
               <li>
                 <a 
                   href="mailto:mikeangelocasono@gmail.com"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors duration-200"
                 >
                   mikeangelocasono@gmail.com
                 </a>
@@ -100,7 +100,7 @@ export default function Footer() {
               <li>Philippines</li>
               <li className="pt-2">
                 <span className="inline-flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
                   Available for projects
                 </span>
               </li>
@@ -110,20 +110,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-gray-800 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-400 text-sm text-center sm:text-left">
+            <p className="text-gray-400 dark:text-slate-400 text-sm text-center sm:text-left">
               © {currentYear} Mike Angelo R. Casono. All rights reserved.
             </p>
             
             {/* Back to Top */}
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+              className="inline-flex items-center gap-2 text-gray-400 dark:text-slate-400 hover:text-white transition-colors duration-200 group"
             >
               <span className="text-sm">Back to top</span>
-              <div className="p-1.5 rounded-lg bg-gray-800 group-hover:bg-blue-600 transition-colors">
+              <div className="p-1.5 rounded-lg bg-gray-800 dark:bg-slate-800 group-hover:bg-blue-600 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-blue-600/30">
                 <ArrowUp className="w-4 h-4" />
               </div>
             </button>

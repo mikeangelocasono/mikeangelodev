@@ -104,7 +104,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-800/50"
+      className="py-20 lg:py-28 bg-gray-50 dark:bg-slate-900/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -139,11 +139,13 @@ export default function Skills() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 lg:p-8 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white dark:bg-slate-800 rounded-2xl p-6 lg:p-8 border border-gray-100 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-300"
             >
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className={`p-3 rounded-xl bg-gray-100 dark:bg-gray-700`}>
+                <div className={`p-3 rounded-xl bg-gray-100 dark:bg-slate-700`}>
                   <category.icon
                     className={`w-6 h-6 ${iconColorVariants[category.color as keyof typeof iconColorVariants]}`}
                   />

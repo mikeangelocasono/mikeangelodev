@@ -73,7 +73,7 @@ const itemVariants = {
 
 export default function WhyWorkWithMe() {
   return (
-    <section className="py-20 lg:py-28 bg-white dark:bg-gray-900">
+    <section className="py-20 lg:py-28 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -107,23 +107,25 @@ export default function WhyWorkWithMe() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800/50 dark:to-gray-800/30 border border-gray-100 dark:border-gray-700/50 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-slate-800/50 dark:to-slate-800/30 border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5"
             >
               {/* Number */}
-              <div className="absolute top-6 right-6 text-5xl font-bold text-gray-100 dark:text-gray-800 select-none">
+              <div className="absolute top-6 right-6 text-5xl font-bold text-gray-100 dark:text-slate-800/70 select-none">
                 {(index + 1).toString().padStart(2, "0")}
               </div>
 
               {/* Icon */}
-              <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 mb-5 group-hover:scale-110 transition-transform duration-300">
+              <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-600 mb-5 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-500/10 transition-all duration-300">
                 <reason.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
               </div>
 
               {/* Content */}
-              <h3 className="relative text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="relative text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                 {reason.title}
               </h3>
-              <p className="relative text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="relative text-gray-600 dark:text-slate-400 leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>
@@ -143,7 +145,7 @@ export default function WhyWorkWithMe() {
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
                 Ready to Start Your Project?
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-slate-400">
                 Let&apos;s discuss how I can help bring your ideas to life.
               </p>
             </div>
@@ -153,7 +155,7 @@ export default function WhyWorkWithMe() {
                 e.preventDefault();
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-white bg-gray-900 dark:bg-blue-600 rounded-xl hover:bg-gray-800 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-gray-900/20 dark:shadow-blue-600/30 hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get In Touch
             </a>

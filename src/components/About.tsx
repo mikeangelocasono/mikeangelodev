@@ -32,7 +32,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 lg:py-28 bg-white dark:bg-gray-900"
+      className="py-20 lg:py-28 bg-white dark:bg-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -49,7 +49,7 @@ export default function About() {
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl" />
               
               {/* Main Image */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 shadow-xl shadow-gray-900/10 dark:shadow-black/30">
                 <Image
                   src="/profile.jpg"
                   alt="Mike Angelo R. Casono"
@@ -69,7 +69,7 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700"
+                className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
               >
                 <div className="text-center">
                   <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
@@ -101,7 +101,7 @@ export default function About() {
               </span>
             </h2>
 
-            <div className="space-y-4 text-gray-600 dark:text-gray-400 mb-8">
+            <div className="space-y-4 text-gray-600 dark:text-slate-400 mb-8">
               <p>
                 I&apos;m <strong className="text-gray-900 dark:text-white">Mike Angelo R. Casono</strong>, 
                 a 4th year Bachelor of Science in Information Technology student with a passion for 
@@ -136,7 +136,8 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50"
+                  whileHover={{ y: -2 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all duration-200"
                 >
                   <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/50">
                     <item.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -145,7 +146,7 @@ export default function About() {
                     <div className="font-semibold text-gray-900 dark:text-white text-sm">
                       {item.title}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
+                    <div className="text-gray-600 dark:text-slate-400 text-sm">
                       {item.description}
                     </div>
                   </div>

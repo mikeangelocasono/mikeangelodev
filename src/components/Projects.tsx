@@ -119,7 +119,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-800/50"
+      className="py-20 lg:py-28 bg-gray-50 dark:bg-slate-900/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -159,8 +159,8 @@ export default function Projects() {
               }}
               className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 activeCategory === category
-                  ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-md"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+                  ? "bg-gray-900 dark:bg-blue-600 text-white shadow-md shadow-gray-900/20 dark:shadow-blue-600/30"
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500"
               }`}
             >
               {category}
@@ -183,10 +183,12 @@ export default function Projects() {
                 key={project.id}
                 variants={itemVariants}
                 layout
-                className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-300"
               >
                 {/* Project Image */}
-                <div className="relative h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                <div className="relative h-48 bg-gray-200 dark:bg-slate-700 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
                   <Image
                     src={project.image}
@@ -198,7 +200,7 @@ export default function Projects() {
                   
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-gray-900/90 text-xs font-medium text-gray-700 dark:text-gray-300">
+                    <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 text-xs font-medium text-gray-700 dark:text-slate-300 backdrop-blur-sm">
                       {project.category}
                     </span>
                   </div>
@@ -228,10 +230,10 @@ export default function Projects() {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  <p className="text-gray-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
 
@@ -240,7 +242,7 @@ export default function Projects() {
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-xs font-medium text-gray-600 dark:text-gray-300"
+                        className="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-slate-700 text-xs font-medium text-gray-600 dark:text-slate-300 border border-gray-200/50 dark:border-slate-600/50"
                       >
                         {tech}
                       </span>
@@ -262,7 +264,7 @@ export default function Projects() {
           >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 font-medium border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-200 hover:shadow-md"
             >
               {showAll ? "Show Less" : "View All Projects"}
               <ChevronRight

@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
@@ -87,7 +87,7 @@ export default function Hero() {
               businesses operate more efficiently and effectively.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Enhanced with professional hover states */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export default function Hero() {
               <a
                 href="#projects"
                 onClick={(e) => handleNavClick(e, "#projects")}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gray-900 dark:bg-blue-600 rounded-xl hover:bg-gray-800 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-gray-900/20 dark:shadow-blue-600/30 hover:shadow-xl hover:shadow-gray-900/30 dark:hover:shadow-blue-600/40 hover:-translate-y-0.5 group"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -105,21 +105,21 @@ export default function Hero() {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Hire Me
               </a>
               <a
                 href="/Mike_Angelo_Casono_CV.pdf"
                 download
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200 group"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
                 Download CV
               </a>
             </motion.div>
 
-            {/* Stats */}
+            {/* Stats - Enhanced with hover effects */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -127,17 +127,22 @@ export default function Hero() {
               className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center lg:text-left">
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 mb-2">
+                <motion.div 
+                  key={index} 
+                  className="text-center lg:text-left group"
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 dark:bg-slate-800 mb-2 group-hover:bg-blue-50 dark:group-hover:bg-slate-700 transition-colors duration-200">
                     <stat.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="text-sm text-gray-500 dark:text-slate-400">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </motion.div>

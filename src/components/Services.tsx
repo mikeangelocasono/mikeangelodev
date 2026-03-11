@@ -75,7 +75,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-20 lg:py-28 bg-white dark:bg-gray-900"
+      className="py-20 lg:py-28 bg-white dark:bg-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -110,23 +110,25 @@ export default function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-6 lg:p-8 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700/50 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="group relative p-6 lg:p-8 bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5"
             >
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 mb-5 group-hover:scale-110 transition-transform duration-300">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-600 mb-5 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-500/10 transition-all duration-300">
                 <service.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                 {service.description}
               </p>
 
               {/* Hover Accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-400 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-400 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </motion.div>
           ))}
         </motion.div>

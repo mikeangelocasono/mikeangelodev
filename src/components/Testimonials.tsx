@@ -56,7 +56,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-800/50"
+      className="py-20 lg:py-28 bg-gray-50 dark:bg-slate-900/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -91,21 +91,23 @@ export default function Testimonials() {
             <motion.div
               key={testimonial.id}
               variants={itemVariants}
-              className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 lg:p-8 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="relative bg-white dark:bg-slate-800 rounded-2xl p-6 lg:p-8 border border-gray-100 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-300"
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6">
-                <Quote className="w-10 h-10 text-gray-100 dark:text-gray-700" />
+                <Quote className="w-10 h-10 text-gray-100 dark:text-slate-700" />
               </div>
 
               {/* Content */}
-              <p className="relative text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              <p className="relative text-gray-600 dark:text-slate-400 mb-6 leading-relaxed">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
                   <span className="text-white font-semibold text-lg">
                     {testimonial.name.charAt(0)}
                   </span>
@@ -114,7 +116,7 @@ export default function Testimonials() {
                   <div className="font-semibold text-gray-900 dark:text-white">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="text-sm text-gray-500 dark:text-slate-400">
                     {testimonial.role}
                   </div>
                   <div className="text-sm text-blue-600 dark:text-blue-400">
