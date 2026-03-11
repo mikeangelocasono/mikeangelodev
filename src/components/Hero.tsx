@@ -61,7 +61,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left order-2 lg:order-1 relative z-20"
+            className="text-center lg:text-left order-2 lg:order-1 relative z-30"
           >
             {/* Badge */}
             <motion.div
@@ -196,10 +196,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 flex justify-center relative z-10"
+            className="order-1 lg:order-2 flex justify-center relative z-0"
           >
             {/* Outer container with padding for floating elements */}
-            <div className="relative p-8 sm:p-12 lg:p-16">
+            <div className="relative p-8 sm:p-12 lg:p-16 pointer-events-none">
               {/* Animated decorative rings - positioned relative to center */}
               <motion.div 
                 animate={{ rotate: 360 }}
@@ -217,7 +217,7 @@ export default function Hero() {
               
               {/* Image Container */}
               <motion.div 
-                className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10 z-20"
+                className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10 z-0 pointer-events-auto"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
