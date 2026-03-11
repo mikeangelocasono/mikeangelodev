@@ -40,9 +40,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="inline-block mb-4">
+            <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="inline-block mb-4 group">
               <span className="text-2xl font-bold">
-                MIKE<span className="text-blue-400">.</span>
+                MIKE<span className="text-blue-400 group-hover:text-blue-300 transition-colors"> DEV</span>
               </span>
             </a>
             <p className="text-gray-400 mb-6 max-w-md">

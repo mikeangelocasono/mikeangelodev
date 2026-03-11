@@ -27,6 +27,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mike Angelo R. Casono" }],
   creator: "Mike Angelo R. Casono",
+  // Favicon configuration
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
