@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 /* ========================================
+   TAILWIND V4 - Enable class-based dark mode
+   ======================================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ========================================
    CUSTOM CSS VARIABLES - Enhanced Dark Mode
    ======================================== */
 :root {

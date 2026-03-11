@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap, Target, Code, Sparkles } from "lucide-react";
@@ -29,6 +29,8 @@ const highlights = [
 ];
 
 export default function About() {
+  const [imageError, setImageError] = useState(false);
+  
   return (
     <section
       id="about"
@@ -46,22 +48,36 @@ export default function About() {
           >
             <div className="relative">
               {/* Background decoration */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl" />
+              <motion.div 
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl" 
+              />
               
               {/* Main Image */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 shadow-xl shadow-gray-900/10 dark:shadow-black/30">
-                <Image
-                  src="/profile.jpg"
-                  alt="Mike Angelo R. Casono"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/profile-placeholder.svg";
-                  }}
-                />
-              </div>
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 shadow-xl shadow-gray-900/10 dark:shadow-black/30"
+              >
+                {/* Gradient background for fallback */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-50 to-blue-100 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700" />
+                
+                {!imageError ? (
+                  <Image
+                    src="/profile.jpg"
+                    alt="Mike Angelo R. Casono"
+                    fill
+                    className="object-cover object-top relative z-10"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 z-10">
+                    <span className="text-8xl font-bold text-white/90">M</span>
+                  </div>
+                )}
+              </motion.div>
 
               {/* Experience Badge */}
               <motion.div
@@ -69,13 +85,14 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
               >
                 <div className="text-center">
                   <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
                     10+
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">
                     Systems<br />Developed
                   </div>
                 </div>

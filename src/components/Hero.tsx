@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Download, Code2, Database, Cpu } from "lucide-react";
+import { ArrowRight, Download, Code2, Database, Cpu, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  const [imageError, setImageError] = useState(false);
+  
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -25,8 +27,28 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"
+        />
+      </div>
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }} />
@@ -36,9 +58,9 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left order-2 lg:order-1"
           >
             {/* Badge */}
@@ -46,9 +68,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6 border border-blue-100 dark:border-blue-800/50"
             >
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <motion.span 
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-2 h-2 rounded-full bg-green-500 shadow-lg shadow-green-500/50"
+              />
               Available for Projects
             </motion.div>
 
@@ -56,70 +82,86 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4"
             >
               Hi, I&apos;m{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
-                Mike Angelo
+              <span className="relative">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-purple-500">
+                  Mike Angelo
+                </span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full"
+                  initial={{ scaleX: 0, originX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                />
               </span>
             </motion.h1>
 
-            {/* Subtitle */}
-            <motion.p
+            {/* Subtitle with typing effect style */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6"
+              className="flex items-center justify-center lg:justify-start gap-2 mb-6"
             >
-              AI-Assisted Full Stack System Developer
-            </motion.p>
+              <Sparkles className="w-5 h-5 text-blue-500" />
+              <p className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-slate-300">
+                AI-Assisted Full Stack System Developer
+              </p>
+            </motion.div>
 
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg text-gray-600 dark:text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               I build intelligent, custom systems that solve real business problems. 
               From management systems to POS solutions, I create software that helps 
               businesses operate more efficiently and effectively.
             </motion.p>
 
-            {/* CTA Buttons - Enhanced with professional hover states */}
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
             >
-              <a
+              <motion.a
                 href="#projects"
                 onClick={(e) => handleNavClick(e, "#projects")}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gray-900 dark:bg-blue-600 rounded-xl hover:bg-gray-800 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-gray-900/20 dark:shadow-blue-600/30 hover:shadow-xl hover:shadow-gray-900/30 dark:hover:shadow-blue-600/40 hover:-translate-y-0.5 group"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 group"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-200 hover:-translate-y-0.5"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-all duration-300 shadow-lg shadow-gray-200/50 dark:shadow-slate-900/50"
               >
                 Hire Me
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="/Mike_Angelo_Casono_CV.pdf"
                 download
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200 group"
+                whileHover={{ y: -2 }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 group"
               >
-                <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+                <Download className="w-4 h-4 group-hover:animate-bounce" />
                 Download CV
-              </a>
+              </motion.a>
             </motion.div>
 
-            {/* Stats - Enhanced with hover effects */}
+            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,11 +171,13 @@ export default function Hero() {
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-center lg:text-left group"
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.2 }}
+                  className="text-center lg:text-left group cursor-default"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 dark:bg-slate-800 mb-2 group-hover:bg-blue-50 dark:group-hover:bg-slate-700 transition-colors duration-200">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-slate-800 dark:to-slate-700 mb-2 group-hover:from-blue-100 group-hover:to-blue-50 dark:group-hover:from-blue-900/30 dark:group-hover:to-blue-800/30 transition-all duration-300 shadow-sm group-hover:shadow-md">
                     <stat.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
@@ -147,64 +191,114 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Image */}
+          {/* Profile Image Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
+              {/* Animated decorative rings */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px] -m-4 border-2 border-dashed border-blue-200/50 dark:border-blue-500/20 rounded-full"
+              />
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 w-80 h-80 sm:w-96 sm:h-96 lg:w-[460px] lg:h-[460px] -m-8 border border-purple-200/30 dark:border-purple-500/10 rounded-full"
+              />
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl scale-110" />
               
               {/* Image Container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-gray-900/20 dark:shadow-black/40">
-                <Image
-                  src="/profile.jpg"
-                  alt="Mike Angelo R. Casono - AI-Assisted Full Stack System Developer"
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
-                  onError={(e) => {
-                    // Fallback to placeholder if image fails to load
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/profile-placeholder.svg";
-                  }}
-                />
-              </div>
+              <motion.div 
+                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-blue-500/20 dark:shadow-blue-500/10"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Gradient background for when image has white bg or fails to load */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-50 to-blue-100 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700" />
+                
+                {!imageError ? (
+                  <Image
+                    src="/profile.jpg"
+                    alt="Mike Angelo R. Casono - AI-Assisted Full Stack System Developer"
+                    fill
+                    priority
+                    className="object-cover object-top relative z-10"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  /* Fallback Avatar */
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
+                    <span className="text-7xl sm:text-8xl lg:text-9xl font-bold text-white/90">M</span>
+                  </div>
+                )}
+              </motion.div>
 
-              {/* Floating Badge */}
+              {/* Floating Badge - Open to Work */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -right-2 sm:-right-4 top-8 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-lg shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
+                initial={{ opacity: 0, x: 20, y: 20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="absolute -right-2 sm:-right-4 top-8 bg-white dark:bg-slate-800 px-4 py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-                  <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <motion.div 
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="w-3 h-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50"
+                  />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-slate-200">
                     Open to Work
                   </span>
                 </div>
               </motion.div>
 
-              {/* Floating Tech Badge */}
+              {/* Floating Badge - AI Powered */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute -left-2 sm:-left-4 bottom-12 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-lg shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
+                initial={{ opacity: 0, x: -20, y: -20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="absolute -left-2 sm:-left-4 bottom-12 bg-white dark:bg-slate-800 px-4 py-2.5 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-black/30 border border-gray-100 dark:border-slate-700 backdrop-blur-sm"
               >
                 <div className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Sparkles className="w-4 h-4 text-blue-500" />
+                  </motion.div>
+                  <span className="text-sm font-semibold text-gray-700 dark:text-slate-200">
                     AI-Powered
                   </span>
                 </div>
+              </motion.div>
+
+              {/* Tech stack floating icons */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+                className="absolute top-0 left-8 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700"
+              >
+                <Code2 className="w-5 h-5 text-blue-500" />
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                className="absolute bottom-4 right-8 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-slate-700"
+              >
+                <Database className="w-5 h-5 text-purple-500" />
               </motion.div>
             </div>
           </motion.div>
@@ -213,25 +307,30 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
       >
-        <a
+        <motion.a
           href="#services"
           onClick={(e) => handleNavClick(e, "#services")}
-          className="flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          whileHover={{ y: -3 }}
+          className="flex flex-col items-center gap-2 text-gray-400 dark:text-slate-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
         >
-          <span className="text-sm">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2">
+          <span className="text-sm font-medium">Scroll to explore</span>
+          <motion.div 
+            className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2"
+            animate={{ borderColor: ["currentColor", "rgb(59, 130, 246)", "currentColor"] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-1.5 h-1.5 bg-current rounded-full"
             />
-          </div>
-        </a>
+          </motion.div>
+        </motion.a>
       </motion.div>
     </section>
   );
