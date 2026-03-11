@@ -37,6 +37,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --breakpoint-xs: 420px;
 }
 
 /* ========================================
