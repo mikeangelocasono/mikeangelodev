@@ -161,7 +161,7 @@ export default function Hero() {
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
               
               {/* Image Container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl shadow-gray-900/20 dark:shadow-black/40">
                 <Image
                   src="/profile.jpg"
                   alt="Mike Angelo R. Casono - AI-Assisted Full Stack System Developer"
@@ -182,11 +182,11 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -right-2 sm:-right-4 top-8 bg-white dark:bg-gray-800 px-4 py-2 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+                className="absolute -right-2 sm:-right-4 top-8 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-lg shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
                     Open to Work
                   </span>
                 </div>
@@ -197,7 +197,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute -left-2 sm:-left-4 bottom-12 bg-white dark:bg-gray-800 px-4 py-2 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+                className="absolute -left-2 sm:-left-4 bottom-12 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-lg shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-slate-700"
               >
                 <div className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-blue-600 dark:text-blue-400" />
