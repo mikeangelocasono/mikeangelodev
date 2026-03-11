@@ -166,7 +166,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-md mx-auto lg:mx-0 p-4 sm:p-6 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-lg border border-gray-100 dark:border-slate-700"
             >
               {stats.map((stat, index) => (
                 <motion.div 
@@ -177,13 +177,13 @@ export default function Hero() {
                   transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-slate-800 dark:to-slate-700 mb-2 group-hover:from-blue-100 group-hover:to-blue-50 dark:group-hover:from-blue-900/30 dark:group-hover:to-blue-800/30 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-600 mb-2 group-hover:from-blue-100 group-hover:to-blue-50 dark:group-hover:from-blue-900/50 dark:group-hover:to-blue-800/50 transition-all duration-300 shadow-sm group-hover:shadow-md">
                     <stat.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-500 dark:text-slate-400">
+                  <div className="text-sm text-gray-600 dark:text-slate-300 font-medium">
                     {stat.label}
                   </div>
                 </motion.div>

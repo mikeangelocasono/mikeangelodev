@@ -112,7 +112,7 @@ export default function WhyWorkWithMe() {
               className="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-slate-800/50 dark:to-slate-800/30 border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5"
             >
               {/* Number */}
-              <div className="absolute top-6 right-6 text-5xl font-bold text-gray-100 dark:text-slate-800/70 select-none">
+              <div className="absolute top-6 right-6 text-5xl font-bold text-gray-200 dark:text-slate-600 select-none">
                 {(index + 1).toString().padStart(2, "0")}
               </div>
 
