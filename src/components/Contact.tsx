@@ -151,16 +151,18 @@ export default function Contact() {
               </h3>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
-                  <a
+                  <motion.a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-400 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white dark:hover:text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30"
+                    whileHover={{ scale: 1.1, y: -4 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="p-3 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-400 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
                     aria-label={social.label}
                   >
                     <social.icon className="w-5 h-5" />
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>

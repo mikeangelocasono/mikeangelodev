@@ -110,25 +110,35 @@ export default function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="group relative p-6 lg:p-8 bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5"
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="group relative p-6 lg:p-8 bg-white dark:bg-slate-800/80 rounded-2xl border border-gray-100 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/15 dark:hover:shadow-blue-500/10 backdrop-blur-sm"
             >
+              {/* Glassmorphism Background Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-600 mb-5 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-500/10 transition-all duration-300">
-                <service.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-              </div>
+              <motion.div 
+                className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-gray-50 to-white dark:from-slate-700 dark:to-slate-800 shadow-sm border border-gray-100 dark:border-slate-600 mb-5 group-hover:shadow-lg group-hover:shadow-blue-500/20 transition-all duration-300"
+                whileHover={{ rotate: [0, -10, 10, 0] }}
+                transition={{ duration: 0.5 }}
+              >
+                <service.icon className="w-7 h-7 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+              </motion.div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+              <h3 className="relative text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
+              <p className="relative text-gray-600 dark:text-slate-400 leading-relaxed">
                 {service.description}
               </p>
 
-              {/* Hover Accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-400 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              {/* Animated Hover Accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-400 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              
+              {/* Corner Glow Effect */}
+              <div className="absolute -top-1 -right-1 w-20 h-20 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           ))}
         </motion.div>
@@ -144,16 +154,18 @@ export default function Services() {
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             Need something specific? I&apos;m flexible and can adapt to your requirements.
           </p>
-          <a
+          <motion.a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            whileHover={{ x: 5 }}
+            className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
           >
-            Let&apos;s discuss your project →
-          </a>
+            Let&apos;s discuss your project 
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </motion.a>
         </motion.div>
       </div>
     </section>

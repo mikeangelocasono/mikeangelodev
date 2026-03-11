@@ -151,20 +151,22 @@ export default function Projects() {
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
               onClick={() => {
                 setActiveCategory(category);
                 setShowAll(false);
               }}
-              className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-gray-900 dark:bg-blue-600 text-white shadow-md shadow-gray-900/20 dark:shadow-blue-600/30"
-                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500"
+                  ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30"
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500/50 hover:shadow-md"
               }`}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </motion.div>
 
@@ -194,37 +196,50 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 text-xs font-medium text-gray-700 dark:text-slate-300 backdrop-blur-sm">
+                  <motion.div 
+                    className="absolute top-4 left-4 z-10"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                  >
+                    <span className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-xs font-semibold text-gray-700 dark:text-slate-300 backdrop-blur-md shadow-lg border border-white/20">
                       {project.category}
                     </span>
-                  </div>
+                  </motion.div>
 
-                  {/* Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-colors"
-                      aria-label="View Live Demo"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-colors"
-                      aria-label="View GitHub Repository"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
+                  {/* Modern Glassmorphism Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end pb-6 gap-3">
+                    <div className="flex items-center gap-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-medium hover:bg-blue-50 transition-colors shadow-lg"
+                        aria-label="View Live Demo"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </motion.a>
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium hover:bg-white/30 transition-colors border border-white/30"
+                        aria-label="View GitHub Repository"
+                      >
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </motion.a>
+                    </div>
                   </div>
                 </div>
 

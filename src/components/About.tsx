@@ -34,9 +34,29 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 lg:py-28 bg-white dark:bg-slate-900"
+      className="relative py-20 lg:py-28 bg-white dark:bg-slate-900 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Subtle animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.03, 0.06, 0.03]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -right-32 w-96 h-96 bg-blue-500 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.1, 1, 1.1],
+            opacity: [0.03, 0.05, 0.03]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-0 -left-32 w-80 h-80 bg-purple-500 rounded-full blur-3xl"
+        />
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image Side */}
           <motion.div

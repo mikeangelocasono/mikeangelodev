@@ -1,12 +1,49 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, Download, Code2, Database, Cpu, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Typing animation texts
+const typingTexts = [
+  "AI-Assisted Full Stack Developer",
+  "System Development Specialist",
+  "Building Intelligent Solutions",
+  "Turning Ideas Into Reality",
+];
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  // Typing animation effect
+  useEffect(() => {
+    const currentFullText = typingTexts[currentTextIndex];
+    const typingSpeed = isDeleting ? 30 : 80;
+    const pauseTime = 2000;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < currentFullText.length) {
+          setDisplayText(currentFullText.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(displayText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % typingTexts.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentTextIndex]);
   
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -29,6 +66,7 @@ export default function Hero() {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Primary gradient blobs */}
         <motion.div 
           animate={{ 
             scale: [1, 1.2, 1],
@@ -44,6 +82,53 @@ export default function Hero() {
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"
+        />
+        
+        {/* Additional floating elements */}
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 15, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-cyan-400/5 to-blue-500/5 dark:from-cyan-400/3 dark:to-blue-500/3 rounded-full blur-2xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -20, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/3 right-1/3 w-48 h-48 bg-gradient-to-br from-violet-400/5 to-purple-500/5 dark:from-violet-400/3 dark:to-purple-500/3 rounded-full blur-2xl"
+        />
+        
+        {/* Floating geometric shapes */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-20 left-1/4 w-16 h-16 border border-blue-200/20 dark:border-blue-400/10 rounded-lg"
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-32 right-1/4 w-12 h-12 border border-purple-200/20 dark:border-purple-400/10 rounded-full"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, -20, 0],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-10 w-8 h-8 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 dark:from-blue-400/5 dark:to-cyan-400/5 rounded-md rotate-45"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, 25, 0],
+            opacity: [0.15, 0.3, 0.15]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 right-16 w-6 h-6 bg-gradient-to-br from-violet-400/10 to-purple-400/10 dark:from-violet-400/5 dark:to-purple-400/5 rounded-full"
         />
       </div>
       
@@ -99,16 +184,21 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Subtitle with typing effect style */}
+            {/* Subtitle with typing animation */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-start gap-2 mb-6"
+              className="flex items-center justify-center lg:justify-start gap-2 mb-6 min-h-[2.5rem]"
             >
-              <Sparkles className="w-5 h-5 text-blue-500" />
+              <Sparkles className="w-5 h-5 text-blue-500 flex-shrink-0" />
               <p className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-slate-300">
-                AI-Assisted Full Stack System Developer
+                <span>{displayText}</span>
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                  className="inline-block w-0.5 h-6 sm:h-7 bg-blue-500 ml-1 align-middle"
+                />
               </p>
             </motion.div>
 
