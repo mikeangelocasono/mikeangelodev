@@ -1,36 +1,209 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mike Angelo R. Casono - Portfolio Website
+
+A professional portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. Designed to showcase AI-assisted system development skills and attract freelance clients.
+
+## Features
+
+- **Modern & Clean Design**: Professional UI/UX with minimalist aesthetics
+- **Dark/Light Mode**: Toggle between themes with smooth transitions
+- **Fully Responsive**: Works perfectly on mobile, tablet, and desktop
+- **Fast Performance**: Optimized with Next.js for quick loading times
+- **Smooth Animations**: Subtle animations using Framer Motion
+- **SEO Optimized**: Meta tags and structured data for better visibility
+- **Easy to Customize**: Well-organized component structure
+
+## Sections
+
+1. **Navbar** - Sticky navigation with smooth scroll and mobile menu
+2. **Hero** - Professional introduction with profile image and CTAs
+3. **Services** - What you offer to clients
+4. **Projects** - Portfolio showcase with filtering
+5. **Skills** - Technical expertise organized by category
+6. **About Me** - Personal introduction and background
+7. **Why Work With Me** - Value proposition section
+8. **Testimonials** - Client/collaborator feedback
+9. **Contact** - Contact form and social links
+10. **Footer** - Quick links and additional info
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Navigate to the portfolio folder:
+   ```bash
+   cd portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Add Your Profile Photo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Replace the placeholder with your actual photo:
 
-## Learn More
+1. Add your photo to `public/profile.jpg`
+2. For best results:
+   - Use a high-quality professional photo
+   - Square aspect ratio works best (e.g., 800x800px)
+   - Keep file size under 500KB for optimal loading
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Update Personal Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit the following files to update your details:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Contact Information** (`src/components/Contact.tsx`):
+- Email address
+- Phone number
+- Location
+- Social media links
 
-## Deploy on Vercel
+**Footer** (`src/components/Footer.tsx`):
+- Social media links
+- Email address
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Update Projects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit `src/components/Projects.tsx` to add your real projects:
+
+```tsx
+const projects = [
+  {
+    id: 1,
+    title: "Your Project Name",
+    description: "Project description...",
+    image: "/projects/your-project.jpg",  // Add image to public/projects/
+    technologies: ["React", "Node.js", "MySQL"],
+    category: "Management",
+    liveUrl: "https://your-live-demo.com",
+    githubUrl: "https://github.com/yourusername/project",
+    featured: true,
+  },
+  // Add more projects...
+];
+```
+
+### 4. Update Testimonials
+
+Edit `src/components/Testimonials.tsx` with real testimonials:
+
+```tsx
+const testimonials = [
+  {
+    id: 1,
+    name: "Client Name",
+    role: "Their Role",
+    company: "Company Name",
+    content: "What they said about your work...",
+  },
+  // Add more testimonials...
+];
+```
+
+### 5. Add Your CV
+
+Place your CV file as `public/Mike_Angelo_Casono_CV.pdf`
+
+### 6. Update SEO Metadata
+
+Edit `src/app/layout.tsx` to update:
+- Website title
+- Description
+- Keywords
+- Open Graph images
+- Twitter card data
+
+### 7. Add Project Images
+
+1. Create images for each project (800x450px recommended)
+2. Save them in `public/projects/`
+3. Update image paths in Projects component
+
+## Project Structure
+
+```
+portfolio/
+├── public/
+│   ├── profile.jpg              # Your profile photo
+│   ├── profile-placeholder.svg  # Placeholder image
+│   ├── projects/                # Project images
+│   │   ├── plant-disease.svg
+│   │   ├── inventory.svg
+│   │   └── ...
+│   └── Mike_Angelo_Casono_CV.pdf
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx           # Root layout with metadata
+│   │   ├── page.tsx             # Main page component
+│   │   └── globals.css          # Global styles
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Services.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Skills.tsx
+│   │   ├── About.tsx
+│   │   ├── WhyWorkWithMe.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   └── context/
+│       └── ThemeContext.tsx     # Dark/light mode context
+├── package.json
+├── tailwind.config.js
+├── next.config.ts
+└── README.md
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import the repository in [Vercel](https://vercel.com)
+3. Deploy automatically
+
+### Other Platforms
+
+The site can also be deployed to:
+- Netlify
+- Railway
+- Any platform supporting Node.js
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+**Built with ❤️ by Mike Angelo R. Casono**
